@@ -1,1 +1,0 @@
-# Teste-Técnico---Fullstack---CayoNakasato
