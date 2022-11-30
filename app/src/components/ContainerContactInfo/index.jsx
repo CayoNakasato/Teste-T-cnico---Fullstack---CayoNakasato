@@ -2,8 +2,6 @@ import { useContext } from "react";
 import { ContactDataContext } from "../../context/contactData";
 import style from "./style.module.css";
 
-
-
 export const ContainerContactInfo = () => {
   const { contactsData } = useContext(ContactDataContext);
 

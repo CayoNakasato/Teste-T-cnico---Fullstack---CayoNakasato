@@ -2,16 +2,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import style from "./style.module.css";
 
 
 import { ClientDataContext } from "../../context/clientData";
 
 export const FormClient = () => {
-  const { getClientData } = useContext(ClientDataContext);
-
-  const navigate = useNavigate();
+  const { getClientData, getAllClients } = useContext(ClientDataContext);
 
   const formSchema = yup.object().shape({
     name: yup.string().required("Field Required!"),
@@ -24,14 +21,9 @@ export const FormClient = () => {
   });
 
   const onSubmit = (data) => {
-    navigate("/dashboard");
-
-    getClientData(data);
+    getClientData(data)
+    getAllClients()
   };
-
-  const onNavigate = () =>{
-    navigate("/dashboard");
-  }
 
   return (
     <>
@@ -54,8 +46,6 @@ export const FormClient = () => {
         
         <button type="submit" className={style.btn_register_client}>Cadastrar</button>
       </form>
-
-
     </>
   );
 }
