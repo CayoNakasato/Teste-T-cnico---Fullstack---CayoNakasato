@@ -1,19 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import {UserDataProvider} from "./context/userData"
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { ClientDataProvider } from "./context/clientData";
 import { BrowserRouter } from "react-router-dom";
+import { ContactDataProvider } from "./context/contactData";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserDataProvider>
-        <App />
-      </UserDataProvider>
+      <ClientDataProvider>
+        <ContactDataProvider>
+          <App />
+        </ContactDataProvider>
+      </ClientDataProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
-
