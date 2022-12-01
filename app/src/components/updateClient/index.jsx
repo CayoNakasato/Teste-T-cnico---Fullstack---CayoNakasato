@@ -7,6 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import { ClientDataContext } from "../../context/clientData";
+import style from "./style.module.css";
 
 export const EditClients = () => {
   const { client, getOneClient, updateClient } = useContext(ClientDataContext);
@@ -20,8 +21,6 @@ export const EditClients = () => {
   useEffect(() => {
     getOneClient(id);
   }, []);
-
-  console.log(client)
 
   const name = useInput({
     name: "name",
@@ -48,7 +47,7 @@ export const EditClients = () => {
 
   return (
     <>
-      <div>
+      <div className={style.container}>
         <h2>Editar Cliente</h2>
         <form onSubmit={form.handleSubmit}>
           <div>

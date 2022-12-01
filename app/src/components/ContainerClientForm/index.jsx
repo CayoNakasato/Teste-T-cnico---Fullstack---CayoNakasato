@@ -15,9 +15,9 @@ export const ContainerClientForm = () =>{
   return (
     <>
       <div className={style.container}>
-        <h1>Cadastre um cliente aqui!</h1>
+        <h1 className={style.containerTitle}>Cadastre um cliente aqui!</h1>
         <FormClient/>
-        <button onClick={handleNavigate}>Cadastrar Contato</button>
+        <button onClick={handleNavigate} className={style.btn_register_contact}>Cadastrar Contato</button>
       </div>
     </>
   )

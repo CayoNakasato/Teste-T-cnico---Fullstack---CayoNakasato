@@ -9,10 +9,19 @@ export const ContainerContacts = () => {
 
   return (
     <>
-      <ul className={style.clientList}>
-        {contacts.map((contact) => {
-          return <ContactCard contact={contact} key={contact.id} />;
-        })}
+      <ul className={style.contactist}>
+        {
+          contacts.length > 0 ?
+          (
+            contacts.map((contact) => {
+              return <ContactCard contact={contact} key={contact.id} />;
+            })
+          )
+          :
+          ( 
+            <h2>Parece que este cliente não possui contatos...</h2>
+          )
+        }
       </ul>
     </>
   )

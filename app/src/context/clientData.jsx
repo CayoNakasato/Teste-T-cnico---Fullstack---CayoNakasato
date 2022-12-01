@@ -4,13 +4,18 @@ import { api } from "../server/api";
 export const ClientDataContext = createContext();
 
 export const ClientDataProvider = ({ children }) => {
+
+
   const [clientData, setClientData] = useState({});
   const [clients, setClients] = useState([]);
   const [client, setClient] = useState({});
   const [canSeeClients, setCanSeeClients] = useState(false)
 
   const getClientData = (data) => {
-    api.post("/clients", data).then((res) => setClientData(res.data));
+    api.post("/clients", data).then((res) =>{
+       setClientData(res.data)
+       setCanSeeClients(false)
+      });
   };
 
   const getAllClients = () => {

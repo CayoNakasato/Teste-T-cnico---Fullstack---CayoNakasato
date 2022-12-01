@@ -15,9 +15,9 @@ export const ContainerContactForm = () =>{
   return (
     <>
       <div className={style.container}>
-        <h1>Cadastre um Contato!</h1>
+        <h1 className={style.containerTitle}>Cadastre um Contato!</h1>
         <FormContact/>
-        <button onClick={handleNavigate}>Voltar</button>
+        <button onClick={handleNavigate} className={style.btn_go_back}>Voltar</button>
       </div>
     </>
   )

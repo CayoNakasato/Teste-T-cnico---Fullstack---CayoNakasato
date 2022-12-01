@@ -19,9 +19,17 @@ export const ContactDataProvider = ({children}) =>{
         .then(res => setContactsData([...contactsData, res.data]))
     }
 
-    const getAllContacts = () =>{
-        api.get("/contacts")
-        .then(res => setContacts(res.data))
+    const getAllContactsOneClient = (id) =>{
+        if(id === ""){
+            console.assert("Selecione alguma opção!")
+        }else{
+            api.get(`/clients/${id}/`)
+        .then(res =>{
+            setContacts(res.data.contacts)
+            setCanSeeContacts(true)
+        })
+        }
+        
     }
 
     const updateContact = (id, data) =>{
@@ -40,7 +48,7 @@ export const ContactDataProvider = ({children}) =>{
                 {
                     getContactData,
                     contactsData,
-                    getAllContacts,
+                    getAllContactsOneClient,
                     contacts,
                     navigate,
                     handleNavigation,
