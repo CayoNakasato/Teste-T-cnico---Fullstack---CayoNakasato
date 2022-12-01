@@ -5,6 +5,7 @@ import { IContactRequest } from "../../interfaces/contact"
 
 
 const contactUpdateService = async (id: string, data: IContactRequest ) =>{
+
     const contactRepository = AppDataSource.getRepository(Contact)
     
     const contactToUpdate = await contactRepository.findOne({where:{

@@ -12,10 +12,12 @@ const contactDeleteService = async (id: string) =>{
     if(!contactToDelete){
         throw new AppError(404, "Contact not found.")
     }
+    
+    contactToDelete.isActive = false
 
-    await contactRepository.delete(contactToDelete);
+    await contactRepository.save(contactToDelete)
 
-    return "Contact Deleted!"
+    return "Contact desactivated!"
 }
 
 export default contactDeleteService
